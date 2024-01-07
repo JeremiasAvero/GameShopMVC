@@ -1,0 +1,427 @@
+﻿@{
+    ViewData["Title"] = "Comprar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    decimal total = 0;
+}
+
+<hr />
+<div class="card p-3 w-75 m-auto" style=" box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+
+
+    <div class="container-fluid">
+        <div class="container d-inline-fle flex-row">
+            <div class="col d-inline-flex m-1">
+                <a class="btn btn-outline-dark w-100  h-100" asp-action="Procesador" asp-controller="ArmaTuPc">1 - Procesador</a>
+            </div>
+            <div class="col d-inline-flex m-1">
+                <a class="btn btn-outline-dark w-100 h-100" asp-action="Cooler" asp-controller="ArmaTuPc">2 - Cooler del Procesador</a>
+            </div>
+            <div class="col d-inline-flex m-1">
+                <a class="btn btn-outline-dark w-100 h-100 " asp-action="PlacaMadre" asp-controller="ArmaTuPc">3 - Placa Madre</a>
+            </div>
+            <div class="col d-inline-flex m-1">
+                <a class="btn btn-outline-dark w-100 h-100" asp-action="MemoriaRam" asp-controller="ArmaTuPc">4 - Memoria Ram</a>
+            </div>
+            <div class="col d-inline-flex m-1">
+                <a class="btn btn-outline-dark w-100 h-100" asp-action="Gabinete" asp-controller="ArmaTuPc">5 - Gabinete</a>
+            </div>
+            <div class="col d-inline-flex m-1">
+                <a class="btn btn-outline-dark w-100 h-100" asp-action="Fuente" asp-controller="ArmaTuPc">6 - Fuente</a>
+            </div>
+            <div class="col d-inline-flex m-1">
+                <a class="btn btn-outline-dark w-100 h-100" asp-action="DiscoPrincipal" asp-controller="ArmaTuPc">7 - Disco Principal</a>
+            </div>
+            <div class="col d-inline-flex m-1">
+                <a class="btn btn-outline-dark w-100 h-100" asp-action="DiscoSecundario" asp-controller="ArmaTuPc">8 - Disco Secundario</a>
+            </div>
+            <div class="col d-inline-flex m-1">
+                <a class="btn btn-outline-dark w-100 h-100" asp-action="PlacaDeVideo" asp-controller="ArmaTuPc">9 - Placa de Video</a>
+            </div>
+            <div class="col d-inline-flex m-1">
+                <a class="btn btn-outline-dark w-100 h-100" asp-action="ATYI" asp-controller="ArmaTuPc">10 - Armado, testeo e Instalaciòn</a>
+            </div>
+            <div class="col d-inline-flex m-1">
+                <a class="btn btn-dark w-100 h-100" asp-action="Comprar" asp-controller="ArmaTuPc">11 - Revisar y Comprar</a>
+            </div>
+
+        </div>
+        <div class="container-fluid d-inline-flex justify-content-center align-content-center flex-column m-2 w-100">
+            <h2>11 - Revisar y comprar</h2>
+        </div>
+    </div>
+</div>
+
+<hr />
+<div class="container-fluid d-inline-flex justify-content-center row m-auto m-3">
+
+        @if (ViewBag.ProcesadorElegido != null)
+        {
+            ProductoModel procesadorElegido = ViewBag.ProcesadorElegido;
+        total = total + procesadorElegido.Precio;
+        <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                <h5>Procesador</h5>
+                @if (procesadorElegido.UrlImagen != null)
+                {
+                    <img src="@procesadorElegido.UrlImagen" class="card-img-top w-100 h-50" alt="...">
+                }
+                else
+                {
+                    <img src="~/productosimagenes/defaultplaceholder.png" class="card-img-top" alt="...">
+                }
+                <div class="card-body">
+                    <h6 class="card-title">@procesadorElegido.Nombre</h6>
+                    <h5 class="card-text">$@procesadorElegido.Precio </h5>
+                    <a class="btn btn-primary text-white" type="submit" name="agregarProcesador" asp-action="Procesador" asp-controller="ArmaTuPc"> Modificar</a>
+                </div>
+        </div>
+
+    }
+    else
+    {
+
+        <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h5>Procesador</h5>
+                <img src="~/productosimagenes/defaultplaceholder.png" class="card-img-top w-100 h-50" alt="...">
+            
+            <div class="card-body">
+                <p>Sin selección</p>
+                <a class="btn btn-primary text-white" type="submit" name="agregarProcesador" asp-action="Procesador" asp-controller="ArmaTuPc"> Modificar</a>
+            </div>
+        </div>
+    }
+
+        @if (ViewBag.CoolerElegido != null)
+        {
+            ProductoModel CoolerElegido = ViewBag.CoolerElegido;
+        total = total + CoolerElegido.Precio;
+
+            <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h5>Cooler</h5>
+                @if (CoolerElegido.UrlImagen != null)
+                {
+                    <img src="@CoolerElegido.UrlImagen" class="card-img-top w-100 h-50" alt="...">
+                }
+                else
+                {
+                    <img src="~/productosimagenes/defaultplaceholder.png" class="card-img-top" alt="...">
+                }
+                <div class="card-body">
+                    <h6 class="card-title">@CoolerElegido.Nombre</h6>
+                    <h5 class="card-text">$@CoolerElegido.Precio </h5>
+                <a class="btn btn-primary text-white" type="submit" name="agregarProcesador" asp-action="Cooler" asp-controller="ArmaTuPc" asp-route-idProductoQuitar="@CoolerElegido.Id"> Modificar</a>
+                </div>
+            </div>
+
+    }
+    else
+    {
+
+        <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h5>Cooler</h5>
+            <img src="~/productosimagenes/defaultplaceholder.png" class="card-img-top w-100 h-50" alt="...">
+
+            <div class="card-body">
+                <p>Sin selección</p>
+                <a class="btn btn-primary text-white" type="submit" name="agregarProcesador" asp-action="Cooler" asp-controller="ArmaTuPc"> Modificar</a>
+            </div>
+        </div>
+    }
+
+        @if (ViewBag.PlacaMadreElegida != null)
+        {
+            ProductoModel PlacaMadreElegida = ViewBag.PlacaMadreElegida;
+        total = total + PlacaMadreElegida.Precio;
+
+            <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h5>Placa Madre</h5>
+                @if (PlacaMadreElegida.UrlImagen != null)
+                {
+                    <img src="@PlacaMadreElegida.UrlImagen" class="card-img-top w-100 h-50" alt="...">
+                }
+                else
+                {
+                    <img src="~/productosimagenes/defaultplaceholder.png" class="card-img-top" alt="...">
+                }
+                <div class="card-body">
+                    <h6 class="card-title">@PlacaMadreElegida.Nombre</h6>
+                    <h5 class="card-text">$@PlacaMadreElegida.Precio </h5>
+                <a class="btn btn-primary text-white" type="submit" name="agregarProcesador" asp-action="PlacaMadre" asp-controller="ArmaTuPc" asp-route-idProductoQuitar="@PlacaMadreElegida.Id"> Modificar</a>
+                </div>
+            </div>
+
+    }
+    else
+    {
+
+        <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h5>Placa Madre</h5>
+            <img src="~/productosimagenes/defaultplaceholder.png" class="card-img-top w-100 h-50" alt="...">
+
+            <div class="card-body">
+                <p>Sin selección</p>
+                <a class="btn btn-primary text-white" type="submit" name="agregarProcesador" asp-action="PlacaMadre" asp-controller="ArmaTuPc"> Modificar</a>
+            </div>
+        </div>
+    }
+
+        @if (ViewBag.MemoriaRamElegida != null)
+        {
+            ProductoModel MemoriaRamElegida = ViewBag.MemoriaRamElegida;
+        total = total + MemoriaRamElegida.Precio;
+
+            <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h5>MemoriaRam</h5>
+                @if (MemoriaRamElegida.UrlImagen != null)
+                {
+                    <img src="@MemoriaRamElegida.UrlImagen" class="card-img-top w-100 h-50" alt="...">
+                }
+                else
+                {
+                    <img src="~/productosimagenes/defaultplaceholder.png" class="card-img-top" alt="...">
+                }
+                <div class="card-body">
+                    <h6 class="card-title">@MemoriaRamElegida.Nombre</h6>
+                    <h5 class="card-text">$@MemoriaRamElegida.Precio </h5>
+                <a class="btn btn-primary text-white" type="submit" name="agregarProcesador" asp-action="MemoriaRam" asp-controller="ArmaTuPc" asp-route-idProductoQuitar="@MemoriaRamElegida.Id"> Modificar</a>
+                </div>
+            </div>
+
+    }
+    else
+    {
+
+        <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h5>MemoriaRam</h5>
+            <img src="~/productosimagenes/defaultplaceholder.png" class="card-img-top w-100 h-50" alt="...">
+
+            <div class="card-body">
+                <p>Sin selección</p>
+                <a class="btn btn-primary text-white" type="submit" name="agregarProcesador" asp-action="MemoriaRam" asp-controller="ArmaTuPc"> Modificar</a>
+            </div>
+        </div>
+    }
+
+        @if (ViewBag.GabineteElegido != null)
+        {
+            ProductoModel GabineteElegido = ViewBag.GabineteElegido;
+        total = total + GabineteElegido.Precio;
+
+            <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+
+            <h5>Gabinete</h5>
+            @if (GabineteElegido.UrlImagen != null)
+                {
+                    <img src="@GabineteElegido.UrlImagen" class="card-img-top w-100 h-50" alt="...">
+                }
+                else
+                {
+                    <img src="~/productosimagenes/defaultplaceholder.png" class="card-img-top" alt="...">
+                }
+                <div class="card-body">
+                    <h6 class="card-title">@GabineteElegido.Nombre</h6>
+                    <h5 class="card-text">$@GabineteElegido.Precio </h5>
+                <a class="btn btn-primary text-white" type="submit" name="agregarProcesador" asp-action="Gabinete" asp-controller="ArmaTuPc" asp-route-idProductoQuitar="@GabineteElegido.Id"> Modificar</a>
+                </div>
+            </div>
+
+    }
+    else
+    {
+
+        <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h5>Gabinete</h5>
+            <img src="~/productosimagenes/defaultplaceholder.png" class="card-img-top w-100 h-50" alt="...">
+
+            <div class="card-body">
+                <p>Sin selección</p>
+                <a class="btn btn-primary text-white" type="submit" name="agregarProcesador" asp-action="Gabinete" asp-controller="ArmaTuPc"> Modificar</a>
+            </div>
+        </div>
+    }
+
+        @if (ViewBag.FuenteElegida != null)
+        {
+            ProductoModel FuenteElegida = ViewBag.FuenteElegida;
+        total = total + FuenteElegida.Precio;
+
+            <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h5>Fuente</h5>
+                @if (FuenteElegida.UrlImagen != null)
+                {
+                    <img src="@FuenteElegida.UrlImagen" class="card-img-top w-100 h-50" alt="...">
+                }
+                else
+                {
+                    <img src="~/productosimagenes/defaultplaceholder.png" class="card-img-top" alt="...">
+                }
+                <div class="card-body">
+                    <h6 class="card-title">@FuenteElegida.Nombre</h6>
+                    <h5 class="card-text">$@FuenteElegida.Precio </h5>
+                <a class="btn btn-primary text-white" type="submit" name="agregarProcesador" asp-action="Fuente" asp-controller="ArmaTuPc" asp-route-idProductoQuitar="@FuenteElegida.Id"> Modificar</a>
+                </div>
+            </div>
+
+    }
+    else
+    {
+
+        <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h5>Fuente</h5>
+            <img src="~/productosimagenes/defaultplaceholder.png" class="card-img-top w-100 h-50" alt="...">
+
+            <div class="card-body">
+                <p>Sin selección</p>
+                <a class="btn btn-primary text-white" type="submit" name="agregarProcesador" asp-action="Fuente" asp-controller="ArmaTuPc"> Modificar</a>
+            </div>
+        </div>
+    }
+
+        @if (ViewBag.DiscoPrincipalElegido != null)
+        {
+            ProductoModel DiscoPrincipalElegido = ViewBag.DiscoPrincipalElegido;
+        total = total + DiscoPrincipalElegido.Precio;
+
+            <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h5>DiscoPrincipal</h5>
+                @if (DiscoPrincipalElegido.UrlImagen != null)
+                {
+                    <img src="@DiscoPrincipalElegido.UrlImagen" class="card-img-top w-100 h-50" alt="...">
+                }
+                else
+                {
+                    <img src="~/productosimagenes/defaultplaceholder.png" class="card-img-top" alt="...">
+                }
+                <div class="card-body">
+                    <h6 class="card-title">@DiscoPrincipalElegido.Nombre</h6>
+                    <h5 class="card-text">$@DiscoPrincipalElegido.Precio </h5>
+                <a class="btn btn-primary text-white" type="submit" name="agregarProcesador" asp-action="DiscoPrincipal" asp-controller="ArmaTuPc" asp-route-idProductoQuitar="@DiscoPrincipalElegido.Id"> Modificar</a>
+                </div>
+            </div>
+
+    }
+    else
+    {
+
+        <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h5>DiscoPrincipal</h5>
+            <img src="~/productosimagenes/defaultplaceholder.png" class="card-img-top w-100 h-50" alt="...">
+
+            <div class="card-body">
+                <p>Sin selección</p>
+                <a class="btn btn-primary text-white" type="submit" name="agregarProcesador" asp-action="DiscoPrincipal" asp-controller="ArmaTuPc"> Modificar</a>
+            </div>
+        </div>
+    }
+
+        @if (ViewBag.DiscoSecundarioElegido != null)
+        {
+            ProductoModel DiscoSecundarioElegido = ViewBag.DiscoSecundarioElegido;
+        total = total + DiscoSecundarioElegido.Precio;
+
+            <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h5>DiscoSecundario</h5>
+                @if (DiscoSecundarioElegido.UrlImagen != null)
+                {
+                    <img src="@DiscoSecundarioElegido.UrlImagen" class="card-img-top w-100 h-50" alt="...">
+                }
+                else
+                {
+                    <img src="~/productosimagenes/defaultplaceholder.png" class="card-img-top" alt="...">
+                }
+                <div class="card-body">
+                    <h6 class="card-title">@DiscoSecundarioElegido.Nombre</h6>
+                    <h5 class="card-text">$@DiscoSecundarioElegido.Precio </h5>
+                <a class="btn btn-primary text-white" type="submit" name="agregarProcesador" asp-action="DiscoSecundario" asp-controller="ArmaTuPc" asp-route-idProductoQuitar="@DiscoSecundarioElegido.Id"> Modificar</a>
+                </div>
+            </div>
+
+    }
+    else
+    {
+
+        <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h5>DiscoSecundario</h5>
+            <img src="~/productosimagenes/defaultplaceholder.png" class="card-img-top w-100 h-50" alt="...">
+
+            <div class="card-body">
+                <p>Sin selección</p>
+                <a class="btn btn-primary text-white" type="submit" name="agregarProcesador" asp-action="DiscoSecundario" asp-controller="ArmaTuPc"> Modificar</a>
+            </div>
+        </div>
+    }
+
+        @if (ViewBag.PlacaDeVideoElegida != null)
+        {
+            ProductoModel PlacaDeVideoElegida = ViewBag.PlacaDeVideoElegida;
+        total = total + PlacaDeVideoElegida.Precio;
+
+            <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h5>PlacaDeVideo</h5>
+                @if (PlacaDeVideoElegida.UrlImagen != null)
+                {
+                    <img src="@PlacaDeVideoElegida.UrlImagen" class="card-img-top w-100 h-50" alt="...">
+                }
+                else
+                {
+                    <img src="~/productosimagenes/defaultplaceholder.png" class="card-img-top" alt="...">
+                }
+                <div class="card-body">
+                    <h6 class="card-title">@PlacaDeVideoElegida.Nombre</h6>
+                    <h5 class="card-text">$@PlacaDeVideoElegida.Precio </h5>
+                <a class="btn btn-primary text-white" type="submit" name="agregarProcesador" asp-action="PlacaDeVideo" asp-controller="ArmaTuPc" asp-route-idProductoQuitar="@PlacaDeVideoElegida.Id"> Modificar</a>
+                </div>
+            </div>
+
+    }
+    else
+    {
+
+        <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h5>PlacaDeVideo</h5>
+            <img src="~/productosimagenes/defaultplaceholder.png" class="card-img-top w-100 h-50" alt="...">
+
+            <div class="card-body">
+                <p>Sin selección</p>
+                <a class="btn btn-primary text-white" type="submit" name="agregarProcesador" asp-action="PlacaDeVideo" asp-controller="ArmaTuPc"> Modificar</a>
+            </div>
+        </div>
+    }
+
+    @if (ViewBag.ATYIElegido == "Si")
+    {
+        var ATYISi = ViewBag.ATYIElegido;
+        total = total + 13200;
+
+        <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h5>Con Armado, Testeo e Instalación</h5>
+
+            <img src="~/images/th.jpg" class="card-img-top w-100 h-50" />
+            <div class="card-body">
+                <a class="btn btn-primary text-white" type="submit" name="agregarProcesador" asp-action="ATYI" asp-controller="ArmaTuPc"> Modificar</a>
+            </div>
+        </div>
+
+    }
+    else
+    {
+
+        <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h5>Sin Armado, Testeo e Instalación</h5>
+            <img src="~/images/th.jpg" class="card-img-top w-100 h-50" />
+            <div class="card-body" >
+                
+                <a class="btn btn-primary text-white" type="submit" name="agregarProcesador" asp-action="ATYI" asp-controller="ArmaTuPc"> Modificar</a>
+            </div>
+        </div>
+    }
+
+
+</div>
+<hr />
+
+<div class="container-fluid d-inline-flex justify-content-center align-items-center row m-auto">
+    <div class="col m-4"><h5>Total: $ @total</h5></div>
+    <div class="col m-4"> <a asp-action="Comprar" asp-controller="ArmaTuPc" asp-route-idcompra="si" class="btn btn-primary w-100">Añadir al Carrito</a></div>
+   <div class="col-5"></div>
+</div>

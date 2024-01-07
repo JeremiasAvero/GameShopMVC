@@ -1,0 +1,46 @@
+﻿@model UsuarioModel
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Editar</h1>
+<hr />
+<div class="container-fluid">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header">
+                Editar Usuario
+            </div>
+            <div class="card-body">
+                <form asp-action="Editar" asp-controller="Usuarios" method="post">
+                    <input asp-for="Id" type="hidden">
+                    <div class="mb-3">
+                        <label class="form-label">Nombre</label>
+                        <input asp-for="NombreUsuario" type="text" class="form-control">
+                        <span asp-validation-for="NombreUsuario" class="text-danger"> </span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Correo </label>
+                        <input asp-for="Correo" type="email" class="form-control" aria-describedby="emailHelp">
+                        <span asp-validation-for="Correo" class="text-danger"> </span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Contraseña</label>
+                        <input asp-for="Password" class="form-control">
+                        <span asp-validation-for="Password" class="text-danger"> </span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Selecciona un tipo de usuario</label>
+                        <select asp-for="IdTipoUsuario" class="form-control">
+                            <option value=1>Usuario normal</option>
+                            <option value=2>Administrador</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-dark">Registrar</button>
+                    <a asp-action="Listar" class="btn btn-dark" asp-controller="Usuarios">Volver a lista</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

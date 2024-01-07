@@ -1,0 +1,204 @@
+﻿@using TiendaGamer.Extensions;
+@using TiendaGamer.Models;
+@model List<ProductoModel>
+
+@{
+    ViewData["Title"] = "ListarCatalogo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Paginador paginador = new Paginador();
+    int pageNo = 0;
+
+    if (ViewBag.Pager != null)
+    {
+        paginador = ViewBag.Pager;
+        pageNo = paginador.CurrentPage;
+    }
+    List<int> carrito = Context.Session.GetObject<List<int>>("carrito");
+
+    string FMarca = Context.Session.GetString("FMarca");
+    string FCategoria = Context.Session.GetString("FCategoria");
+    string FPrecio = Context.Session.GetString("FPrecio");
+}
+
+<div class="container-fluid d-inline-flex justify-content-center row m-auto">
+    <nav aria-label="breadcrumb d-inline-flex d-inline-flex  m-auto" style="margin-left:150px;">
+        <ol class="breadcrumb m-4 w-100 d-inline-flex ">
+            <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Inicio</a></li>
+
+            @if (ViewBag.Filtro != null)
+            {
+                string filtro = ViewBag.Filtro;
+                <li class="breadcrumb-item"><a asp-action="Listar" asp-controller="Catalogo">Productos</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Resultados de búsqueda para "@filtro"</li>
+            }
+            else
+            {
+                <li class="breadcrumb-item active"><a asp-action="Listar" asp-controller="Catalogo">Productos</a></li>
+
+            }
+        </ol>
+    </nav>
+    <div class="d-inline-flex flex-row">
+
+        <div class="w-25">
+                <h5>Filtros aplicados</h5>
+                <div class="d-inline-flex flex-column p-3 ">
+                    @if (FMarca != null || FCategoria != null || FPrecio != null)
+                    {
+                        if (FMarca != null)
+                        {
+                            <a asp-action="Filtros" asp-controller="Catalogo" asp-route-QFMarca="T" class="btn-sm btn-primary text-decoration-none m-2"><i class="bi bi-x"></i> @FMarca</a>
+
+                        }
+                        if (FCategoria != null)
+                        {
+
+                            <a asp-action="Filtros" asp-controller="Catalogo" asp-route-QFCategoria="T" class="btn-sm btn-primary text-decoration-none m-2"><i class="bi bi-x"></i> @FCategoria</a>
+
+                        }
+                        if (FPrecio != null)
+                        {
+                            <a asp-action="Filtros" asp-controller="Catalogo" asp-route-QFPrecio="T" class="btn-sm btn-primary text-decoration-none m-2"><i class="bi bi-x"></i> @FPrecio</a>
+
+                        }
+                    }
+                    else
+                    {
+                        <p>Ningun flitro aplicado</p>
+                    }
+            </div>
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            Precio
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <ul class="list-unstyled">
+                                <li class ="nav-item"><a class="p-1 btn-outline-dark text-decoration-none" asp-action="Filtros" asp-controller="Catalogo" asp-route-FPrecio="Menor Precio"> Menor Precio</a></li>
+                                <li class ="nav-item"><a class="p-1 btn-outline-dark text-decoration-none" asp-action="Filtros" asp-controller="Catalogo" asp-route-FPrecio="Mayor Precio"> Mayor Precio</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            Categoria
+                        </button>
+                    </h2>
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <ul class="list-unstyled">
+                                <li class="nav-item"><a  class="p-1 btn-outline-dark text-decoration-none" asp-action="Filtros" asp-controller="Catalogo" asp-route-FCategoria="MicroProcesadores"> MicroProcesadores</a></li>
+                                <li class="nav-item"><a  class="p-1 btn-outline-dark text-decoration-none" asp-action="Filtros" asp-controller="Catalogo" asp-route-FCategoria="Coolers"> Coolers</a></li>
+                                <li class="nav-item"><a  class="p-1 btn-outline-dark text-decoration-none" asp-action="Filtros" asp-controller="Catalogo" asp-route-FCategoria="Motherboards"> Motherboards</a></li>
+                                <li class="nav-item"><a  class="p-1 btn-outline-dark text-decoration-none" asp-action="Filtros" asp-controller="Catalogo" asp-route-FCategoria="Memorias Ram"> Memorias Ram</a></li>
+                                <li class="nav-item"><a  class="p-1 btn-outline-dark text-decoration-none" asp-action="Filtros" asp-controller="Catalogo" asp-route-FCategoria="gabinetes"> Gabinetes</a></li>
+                                <li class="nav-item"><a  class="p-1 btn-outline-dark text-decoration-none" asp-action="Filtros" asp-controller="Catalogo" asp-route-FCategoria="fuentes"> Fuentes de Alimentación</a></li>
+                                <li class="nav-item"><a  class="p-1 btn-outline-dark text-decoration-none" asp-action="Filtros" asp-controller="Catalogo" asp-route-FCategoria="ssd"> Discos (HDD)</a></li>
+                                <li class="nav-item"><a  class="p-1 btn-outline-dark text-decoration-none" asp-action="Filtros" asp-controller="Catalogo" asp-route-FCategoria="hdd"> Discos (SSD)</a></li>
+                                <li class="nav-item"><a  class="p-1 btn-outline-dark text-decoration-none" asp-action="Filtros" asp-controller="Catalogo" asp-route-FCategoria="placas"> Placas de video</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                            Marca
+                        </button>
+                    </h2>
+                    <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <ul class="list-unstyled">
+                                @if (ViewBag.marcas != null)
+                                {
+                                    foreach (var item in ViewBag.marcas)
+                                    {
+                                        <li class="nav-item"><a class="p-1 btn-outline-dark text-decoration-none" asp-action="Filtros" asp-controller="Catalogo" asp-route-FMarca="@item.Descripcion">@item.Descripcion</a></li>
+                                    }
+
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container d-inline-flex justify-content-center row m-auto">
+            @foreach (var item in Model)
+            {
+
+                <div class="card d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                    <a class="text-black text-decoration-none" asp-action="VerProducto" asp-controller="Catalogo" asp-route-idProducto="@item.Id">
+                        @if (item.UrlImagen != null)
+                        {
+                            <img src="@item.UrlImagen" class="card-img-top w-100 h-100" alt="...">
+
+                        }
+
+                        else
+                        {
+                            <img src="~/productosimagenes/defaultplaceholder.png" class="card-img-top" alt="...">
+                        }
+
+                        <div class="card-body">
+                            <h6 class="card-title">@item.Nombre</h6>
+                            <h5 class="card-text m-3">$@item.Precio </h5>
+   
+                                <a class="btn btn-primary text-white" asp-action="Listar" asp-controller="Catalogo" asp-route-idProducto="@item.Id"> Agregar al carrito</a>
+
+                        </div>
+                    </a>
+
+
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    @if (paginador.TotalPages > 0)
+    {
+
+        <ul class="pagination justify-content-center m-4">
+            @if (paginador.CurrentPage > 1)
+            {
+                <li class="page-item" style="background-color: #683C8E;">
+                    <a class="page-link text-white" style="background-color: #683C8E;" asp-controller="Catalogo" asp-action="Listar" asp-route-pg="1">Primera</a>
+                </li>
+                <li>
+                    <a class="page-link text-white" style="background-color: #683C8E;" asp-controller="Catalogo" asp-action="Listar" asp-route-pg="@(paginador.TotalPages - 1)">Anterior</a>
+
+                </li>
+            }
+            @for (var pge = paginador.StartPage; pge <= paginador.EndPage; pge++)
+            {
+                <li class="page-item @(pge == paginador.CurrentPage ? "active": "")" aria-current="page">
+                    <a class="page-link text-white" style="background-color: #683C8E;" asp-controller="Catalogo" asp-action="Listar" asp-route-pg="@pge"> @pge</a>
+
+                </li>
+            }
+            @if (paginador.CurrentPage < paginador.TotalPages)
+            {
+                <li class="page-item">
+                    <a class="page-link text-white" style="background-color: #683C8E;" asp-controller="Catalogo" asp-action="Listar" asp-route-pg="@(paginador.CurrentPage + 1)">Siguiente</a>
+                </li>
+                <li>
+                    <a class="page-link text-white" style="background-color: #683C8E;" asp-controller="Catalogo" asp-action="Listar" asp-route-pg="@(paginador.TotalPages)">Ultima</a>
+
+                </li>
+            }
+
+
+
+        </ul>
+    }
+</div>
+

@@ -1,0 +1,86 @@
+﻿@using TiendaElectronica.Data;
+@model ProductoModel
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<hr />
+<div class="container">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header">
+                Editar Producto
+            </div>
+            <div class="card-body">
+                <input asp-for="Id" type="hidden">
+                <form asp-action="Editar" asp-controller="Productos" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Codigo</label>
+                        <input asp-for="Codigo" type="text" class="form-control" />
+                        <span asp-validation-for="Codigo" class="text-danger"> </span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Nombre</label>
+                        <input asp-for="Nombre" type="text" class="form-control" />
+                        <span asp-validation-for="Nombre" class="text-danger"> </span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Descripcion </label>
+                        <input asp-for="Descripcion"  class="form-control" />
+                        <span asp-validation-for="Descripcion" class="text-danger"> </span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Precio</label>
+                        <input asp-for="Precio" class="form-control">
+                        <span asp-validation-for="Precio" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Url de Imagen</label>
+                        <input asp-for="UrlImagen" class="form-control">
+                        <span asp-validation-for="UrlImagen" class="text-danger"> </span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Selecciona una marca</label>
+                        <select asp-for="@Model.Marca.Id" class="form-control">
+                            @{
+                                if (ViewBag.marcas != null)
+                                {
+                                    foreach (var item in ViewBag.marcas)
+                                    {
+                                        <option value=@item.Id>@item.Descripcion</option>
+                                    }
+                                }
+                            }
+                        </select>
+
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Selecciona una categoria</label>
+                        <select asp-for="@Model.Categoria.Id" class="form-control">
+                            @{
+                                if (ViewBag.categorias != null)
+                                {
+                                    foreach (var item2 in ViewBag.categorias)
+                                    {
+                                        <option value=@item2.Id>@item2.Descripcion</option>
+                                    }
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Stock</label>
+                        <input asp-for="Stock" type="number" class="form-control">
+                        <span asp-validation-for="Stock" class="text-danger"> </span>
+                    </div>
+
+                    <input type="hidden" asp-for="@Model.Marca.Descripcion" value="marca" />
+                    <input type="hidden" asp-for="@Model.Categoria.Descripcion" value="categoria" />
+                    <input type="hidden" asp-for="@Model.UrlImagen" value="imgtemp" />
+                    <button type="submit" class="btn btn-dark">Editar</button>
+                    <a asp-action="Listar" class="btn btn-dark" asp-controller="Productos">Volver a lista</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

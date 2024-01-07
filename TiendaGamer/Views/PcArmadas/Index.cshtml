@@ -1,0 +1,31 @@
+﻿@using TiendaGamer.Extensions;
+@using TiendaGamer.Models;
+@model List<PcArmadaModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<div class="container-fluid d-inline-flex justify-content-center row m-auto">
+
+    @foreach (var item in Model)
+    {
+
+        <div class="card d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <a class="text-black text-decoration-none" href="">
+                    <img src="~/productosimagenes/defaultplaceholder.png" class="card-img-top" alt="...">
+
+                <div class="card-body">
+                    <h6 class="card-title">@item.Nombre</h6>
+                    <h5 class="card-text">$@item.Precio </h5>
+                  
+                </div>
+            </a>
+
+
+        </div>
+    }
+
+</div>

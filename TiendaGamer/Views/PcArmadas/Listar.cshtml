@@ -1,0 +1,87 @@
+﻿@using TiendaElectronica.Data;
+@using TiendaGamer.Extensions;
+@using TiendaGamer.Models;
+@model List<PcArmadaModel>
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ProductoDatos datosProductos = new ProductoDatos();
+}
+<hr />
+<div class="card m-2 m-sm-5 bg-light">
+    <div class="card-header">
+        <h1>Productos</h1>
+    </div>
+
+    <hr />
+    <div class="card-body">
+        <div class="row">
+
+
+            <form class="row" asp-action="Listar" asp-controller="Productos" method="get">
+                <div class="col-3">
+                    <a asp-action="Registrar" asp-controller="PcArmadas" class="btn btn-dark">Crear Nuevo</a>
+                </div>
+                <div class="col-3">
+                    <input type="text" class="form-control" placeholder="Buscar..." name="filtro" />
+                </div>
+                <div class="col-2">
+                    <button type="submit" class="btn btn-outline-dark">Buscar</button>
+                </div>
+            </form>
+
+        </div>
+
+        <hr />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Procesador</th>
+                    <th>Cooler</th>
+                    <th>Placa Madre</th>
+                    <th>Memoria Ram</th>
+                    <th>Gabinete</th>
+                    <th>Fuente</th>
+                    <th>Disco Principal</th>
+                    <th>Disco Secundario</th>
+                    <th>Placa de Video</th>
+                    <th>Precio</th>
+ 
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    ProductoModel Procesador = datosProductos.Obtener(item.IdProcesador);
+                    ProductoModel Cooler = datosProductos.Obtener(item.IdCooler);
+                    ProductoModel PlacaMadre = datosProductos.Obtener(item.IdPlacaMadre);
+                    ProductoModel MemoriaRam = datosProductos.Obtener(item.IdMemoriaRam);
+                    ProductoModel Gabinete = datosProductos.Obtener(item.IdGabinete);
+                    ProductoModel Fuente = datosProductos.Obtener(item.IdFuente);
+                    ProductoModel DiscoP = datosProductos.Obtener(item.IdDiscoPrincipal);
+                    ProductoModel DiscoS = datosProductos.Obtener(item.IdDiscoSecundario);
+                    ProductoModel PlacaDeVideo = datosProductos.Obtener(item.IdPlacaDeVideo);
+                    <tr>
+                        <td>@item.IdPc</td>
+                        <td>@item.Nombre</td>
+                        <td>@Procesador.Nombre</td>
+                        <td>@Cooler.Nombre</td>
+                        <td>@PlacaMadre.Nombre</td>
+                        <td>@MemoriaRam.Nombre</td>
+                        <td>@Gabinete.Nombre</td>
+                        <td>@Fuente.Nombre</td>
+                        <td>@DiscoP.Nombre</td>
+                        <td>@DiscoS.Nombre</td>
+                        <td>@PlacaDeVideo.Nombre</td>
+                        <td>@item.Precio</td>
+
+                        <td><a asp-action="Editar" asp-controller="PcArmadas" class="btn btn-dark" asp-route-id="@item.IdPc">Editar</a></td>
+                        <td><a type="submit" asp-action="Eliminar" asp-controller="PcArmadas" class="btn btn-danger" asp-route-id="@item.IdPc">Eliminar</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>

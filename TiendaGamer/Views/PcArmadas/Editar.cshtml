@@ -1,0 +1,167 @@
+﻿@using TiendaElectronica.Data;
+@using TiendaGamer.Models;
+@model PcArmadaModel
+
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<hr />
+<div class="container-fluid">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header">
+                Editar Producto
+            </div>
+            <div class="card-body">
+                <form asp-action="Editar" asp-controller="PcArmadas" method="post">
+                    <input asp-for="IdPc" type="hidden">
+                    <div class="mb-3">
+                        <label class="form-label">Nombre</label>
+                        <input asp-for="Nombre" type="text" class="form-control" />
+                        <span asp-validation-for="Nombre" class="text-danger"> </span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Procesador</label>
+                        <select asp-for="@Model.IdProcesador" class="form-control">
+                            @{
+                                if (ViewBag.procesadores != null)
+                                {
+                                    foreach (var item in ViewBag.procesadores)
+                                    {
+                                        <option value=@item.Id>@item.Nombre</option>
+                                    }
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Cooler</label>
+                        <select asp-for="@Model.IdCooler" class="form-control">
+                            @{
+                                if (ViewBag.coolers != null)
+                                {
+                                    foreach (var item in ViewBag.coolers)
+                                    {
+                                        <option value=@item.Id>@item.Nombre</option>
+                                    }
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Placa Madre</label>
+                        <select asp-for="@Model.IdPlacaMadre" class="form-control">
+                            @{
+                                if (ViewBag.placasmadre != null)
+                                {
+                                    foreach (var item in ViewBag.placasmadre)
+                                    {
+                                        <option value=@item.Id>@item.Nombre</option>
+                                    }
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Memorias Ram</label>
+                        <select asp-for="@Model.IdMemoriaRam" class="form-control">
+                            @{
+                                if (ViewBag.memoriasram != null)
+                                {
+                                    foreach (var item in ViewBag.memoriasram)
+                                    {
+                                        <option value=@item.Id>@item.Nombre</option>
+                                    }
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Gabinete</label>
+                        <select asp-for="@Model.IdGabinete" class="form-control">
+                            @{
+                                if (ViewBag.gabinetes != null)
+                                {
+                                    foreach (var item in ViewBag.gabinetes)
+                                    {
+                                        <option value=@item.Id>@item.Nombre</option>
+                                    }
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Fuente</label>
+                        <select asp-for="@Model.IdFuente" class="form-control">
+                            @{
+                                if (ViewBag.fuentes != null)
+                                {
+                                    foreach (var item in ViewBag.fuentes)
+                                    {
+                                        <option value=@item.Id>@item.Nombre</option>
+                                    }
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Disco Principal</label>
+                        <select asp-for="@Model.IdDiscoPrincipal" class="form-control">
+                            @{
+                                if (ViewBag.discos != null)
+                                {
+                                    foreach (var item in ViewBag.discos)
+                                    {
+                                        <option value=@item.Id>@item.Nombre</option>
+                                    }
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Disco Secundario</label>
+                        
+                        <select asp-for="@Model.IdDiscoSecundario" class="form-control">
+                            <option value=0>Sin Disco Secundario</option>
+                            @{
+                                if (ViewBag.discos != null)
+                                {
+                                    foreach (var item in ViewBag.discos)
+                                    {
+                                        <option value=@item.Id>@item.Nombre</option>
+                                    }
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Placa de video</label>
+                       
+                        <select asp-for="@Model.IdPlacaDeVideo" class="form-control">
+                            <option value=0>Sin Placa de video</option>
+                            @{
+                                if (ViewBag.placasdevideo != null)
+                                {
+                                    foreach (var item in ViewBag.placasdevideo)
+                                    {
+                                        <option value=@item.Id>@item.Nombre</option>
+                                    }
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Precio</label>
+                        <input asp-for="Precio" type="text" class="form-control" />
+                        <span asp-validation-for="Precio" class="text-danger"> </span>
+                    </div>
+
+                    <button type="submit" class="btn btn-dark">Registrar</button>
+                    <a asp-action="Listar" class="btn btn-dark" asp-controller="Productos">Volver a lista</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

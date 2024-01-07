@@ -1,0 +1,171 @@
+﻿@model List<ProductoEnCarritoModel>
+@using TiendaElectronica.Data;
+@using TiendaGamer.Models;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Paginador paginador = new Paginador();
+    int pageNo = 0;
+
+    if (ViewBag.Pager != null)
+    {
+        paginador = ViewBag.Pager;
+        pageNo = paginador.CurrentPage;
+    }
+    decimal contador = 0;
+    ProductoDatos datosProducto = new ProductoDatos();
+}
+@if (Model != null && Model.Count() > 0)
+{
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-7">
+
+            <h1>Carrito</h1>
+            <hr />
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>SubTotal</th>
+                        <th></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        ProductoModel producto = datosProducto.Obtener(item.Producto.Id);
+                        var subtotal =+ item.Cantidad * producto.Precio;
+                        contador = contador + subtotal;
+                            <tr>
+                                <td>
+                                @if (producto.UrlImagen != null)
+                                    {
+                                    <img src="@producto.UrlImagen" class="img-fluid" style="max-width:90px;" alt="...">
+
+                                    }
+                                    else
+                                    {
+                                        <img src="~/productosimagenes/defaultplaceholder.png" class="img" alt="...">
+                                    }
+                                </td>
+                            <td>@producto.Nombre</td>
+                            <td>$@producto.Precio</td>
+
+
+                            <td>
+                                <nav aria-label="...">
+                                    <ul class="pagination">
+                                        <li class="page-item ">
+                                            <a class="page-link" asp-action="Index" asp-controller="Carrito" asp-route-idProductoQ="@producto.Id">-</a>
+                                        </li>
+
+                                        <li class="page-item active" aria-current="page">
+                                            <span class="page-link">@item.Cantidad</span>
+                                        </li>
+
+                                        <li class="page-item">
+                                            <a class="page-link" asp-controller="Carrito" asp-action="Index" asp-route-idProductoA="@producto.Id">+</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </td>
+                            <td>$@subtotal</td>
+                                <td>
+                                <a class="btn btn-primary text-decoration-none" asp-action="Index" asp-controller="Carrito" asp-route-idProductoElim="@producto.Id"><i class="bi bi-x"></i></a>
+
+                                </td>
+                            </tr>
+                        
+                      
+                    }
+
+                    @if (ViewBag.ATYISIV != null)
+                    {
+                        <tr>
+                            <td>
+                                <img src="~/images/th.jpg" class="img-fluid" />
+                            </td>
+                            <td>Con Armado, Testeo e Instalación</td>
+                            <td> 13200</td>
+                            <td>
+                                <a class="btn btn-primary text-decoration-none" asp-action="Index" asp-controller="Carrito" asp-route-idATI="V"> <i class="bi bi-x"></i></a>
+
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+            <div class="col">
+                @if (paginador.TotalPages > 0)
+                {
+
+                    <ul class="pagination justify-content-center m-4">
+                        @if (paginador.CurrentPage > 1)
+                        {
+                            <li class="page-item" style="background-color: #683C8E;">
+                                <a class="page-link text-white" style="background-color: #683C8E;" asp-controller="Productos" asp-action="Listar" asp-route-pg="1">Primera</a>
+                            </li>
+                            <li>
+                                <a class="page-link text-white" style="background-color: #683C8E;" asp-controller="Productos" asp-action="Listar" asp-route-pg="@(paginador.TotalPages - 1)">Anterior</a>
+
+                            </li>
+                        }
+                        @for (var pge = paginador.StartPage; pge <= paginador.EndPage; pge++)
+                        {
+                            <li class="page-item @(pge == paginador.CurrentPage ? "active": "")" aria-current="page">
+                                <a class="page-link text-white" style="background-color: #683C8E;" asp-controller="Productos" asp-action="Listar" asp-route-pg="@pge"> @pge</a>
+
+                            </li>
+                        }
+                        @if (paginador.CurrentPage < paginador.TotalPages)
+                        {
+                            <li class="page-item">
+                                <a class="page-link text-white" style="background-color: #683C8E;" asp-controller="Productos" asp-action="Listar" asp-route-pg="@(paginador.CurrentPage + 1)">Siguiente</a>
+                            </li>
+                            <li>
+                                <a class="page-link text-white" style="background-color: #683C8E;" asp-controller="Productos" asp-action="Listar" asp-route-pg="@(paginador.TotalPages)">Ultima</a>
+
+                            </li>
+                        }
+                    </ul>
+                }
+            </div>
+            
+        </div>
+        <div class="col-4 d-inline-flex justify-content-center row" >
+            <div class="card m-2 m-sm-5 bg-light" style="max-height:300px;">
+                <div class="card-body row" >
+                    <h4>Total del carrito</h4>
+                    <h6>Subtotal: @contador</h6>
+                    <hr/>
+                    <h6>Envío: $0.00</h6>
+                    <hr />
+                    <h6>Recargo Tarjeta: $0.00</h6>
+                    <hr />
+                    <h5>Total:@contador</h5>
+
+                    <a class="btn btn-primary">Finalizar compra</a>
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+
+
+}
+else
+{
+    <div class=" m-2 m-sm-5 d-inline-flex flex-column justify-content-center m-0 w-100 p-4">
+        <h1 class="m-auto p-2">Tu carrito está vacío ...</h1>
+        <br/>
+        <a class="m-auto p-2 btn-sm btn-primary text-decoration-none" asp-action="Index" asp-controller="Home">Volver al Inicio</a>
+    </div>
+
+}

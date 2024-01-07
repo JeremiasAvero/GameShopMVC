@@ -1,0 +1,174 @@
+﻿@using TiendaElectronica.Data;
+@using TiendaGamer.Models;
+@model PcArmadaModel
+@{
+    ViewData["Title"] = "PcArmada";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ProductoDatos datosProductos = new ProductoDatos();
+}
+
+<div class="container-fluid d-inline-flex justify-content-center row m-auto m-3 text-center p-5">
+    <h1>@Model.Nombre</h1>
+</div>
+
+<div class="container-fluid d-inline-flex justify-content-center row m-auto m-3">
+
+    @if (Model.IdProcesador != null)
+    {
+        var Procesador = datosProductos.Obtener(Model.IdProcesador);
+        <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h5>Procesador</h5>
+
+            <img src="@Procesador.UrlImagen" class="card-img-top w-100 h-50" alt="...">
+
+            <div class="card-body">
+                <h6 class="card-title">@Procesador.Nombre</h6>
+                <h5 class="card-text">$@Procesador.Precio </h5>
+            </div>
+        </div>
+
+    }
+
+    @if (Model.IdCooler != null)
+    {
+        var Cooler = datosProductos.Obtener(Model.IdCooler);
+        <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h5>Cooler</h5>
+
+            <img src="@Cooler.UrlImagen" class="card-img-top w-100 h-50" alt="...">
+
+            <div class="card-body">
+                <h6 class="card-title">@Cooler.Nombre</h6>
+                <h5 class="card-text">$@Cooler.Precio </h5>
+            </div>
+        </div>
+
+    }
+
+    @if (Model.IdPlacaMadre != null)
+    {
+        int idplacamadre = Model.IdPlacaMadre;
+        var PlacaMadre = datosProductos.Obtener(idplacamadre);
+        <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h5>Placa Madre</h5>
+
+            <img src="@PlacaMadre.UrlImagen" class="card-img-top w-100 h-50" alt="...">
+
+            <div class="card-body">
+                <h6 class="card-title">@PlacaMadre.Nombre</h6>
+                <h5 class="card-text">$@PlacaMadre.Precio </h5>
+            </div>
+        </div>
+
+    }
+
+    @if (Model.IdMemoriaRam != null)
+    {
+        var MemoriaRam = datosProductos.Obtener(Model.IdMemoriaRam);
+        <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h5>Memoria Ram</h5>
+
+            <img src="@MemoriaRam.UrlImagen" class="card-img-top w-100 h-50" alt="...">
+
+            <div class="card-body">
+                <h6 class="card-title">@MemoriaRam.Nombre</h6>
+                <h5 class="card-text">$@MemoriaRam.Precio </h5>
+            </div>
+        </div>
+
+    }
+
+    @if (Model.IdGabinete != null)
+    {
+        var Gabinete = datosProductos.Obtener(Model.IdGabinete);
+        <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h5>Gabinete</h5>
+
+            <img src="@Gabinete.UrlImagen" class="card-img-top w-100 h-50" alt="...">
+
+            <div class="card-body">
+                <h6 class="card-title">@Gabinete.Nombre</h6>
+                <h5 class="card-text">$@Gabinete.Precio </h5>
+            </div>
+        </div>
+
+    }
+    @if (Model.IdFuente != null)
+    {
+        var Fuente = datosProductos.Obtener(Model.IdFuente);
+        <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h5>Fuente</h5>
+
+            <img src="@Fuente.UrlImagen" class="card-img-top w-100 h-50" alt="...">
+
+            <div class="card-body">
+                <h6 class="card-title">@Fuente.Nombre</h6>
+                <h5 class="card-text">$@Fuente.Precio </h5>
+            </div>
+        </div>
+
+    }
+
+    @if (Model.IdDiscoPrincipal != null)
+    {
+        var DiscoPrincipal = datosProductos.Obtener(Model.IdDiscoPrincipal);
+        <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h5>Disco Principal</h5>
+
+            <img src="@DiscoPrincipal.UrlImagen" class="card-img-top w-100 h-50" alt="...">
+
+            <div class="card-body">
+                <h6 class="card-title">@DiscoPrincipal.Nombre</h6>
+                <h5 class="card-text">$ @DiscoPrincipal.Precio </h5>
+            </div>
+        </div>
+
+    }
+
+    @if (Model.IdDiscoSecundario != null && Model.IdDiscoSecundario != 0)
+    {
+        var DiscoSecundario = datosProductos.Obtener(Model.IdDiscoSecundario);
+        <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h5>Disco Secundario</h5>
+
+            <img src="@DiscoSecundario.UrlImagen" class="card-img-top w-100 h-50" alt="...">
+
+            <div class="card-body">
+                <h6 class="card-title">@DiscoSecundario.Nombre</h6>
+                <h5 class="card-text">$ @DiscoSecundario.Precio </h5>
+            </div>
+        </div>
+
+    }
+
+
+    @if (Model.IdPlacaDeVideo != null && Model.IdPlacaDeVideo != 0)
+    {
+        var PlacaDeVideo = datosProductos.Obtener(Model.IdPlacaDeVideo);
+        <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h5>Placa de Video</h5>
+
+            <img src="@PlacaDeVideo.UrlImagen" class="card-img-top w-100 h-50" alt="...">
+
+            <div class="card-body">
+                <h6 class="card-title">@PlacaDeVideo.Nombre</h6>
+                <h5 class="card-text">$ @PlacaDeVideo.Precio </h5>
+            </div>
+        </div>
+
+    }
+    <div class="row m-5">
+        <div class="col-1"></div>
+        <div class="col"><h5>Precio: $@Model.Precio</h5></div>
+        <div class="col m-4"> <a asp-action="PcArmada" asp-controller="Catalogo" asp-route-idcompra="si" class="btn btn-primary w-100">Añadir al Carrito</a></div>
+
+        <div class="col"></div>
+        <div class="col"></div>
+    </div>
+
+
+
+</div>
+
+<hr />
+

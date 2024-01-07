@@ -1,0 +1,85 @@
+﻿@using TiendaGamer.Models;
+@model List<ProductoModel>
+@{
+    ViewData["Title"] = "ATYI";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<hr />
+<div class="card p-3 w-75 m-auto" style=" box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+
+    <div class="container-fluid">
+        <div class="container d-inline-fle flex-row">
+            <div class="col d-inline-flex m-1">
+                <a class="btn btn-outline-dark w-100  h-100" asp-action="Procesador" asp-controller="ArmaTuPc">1 - Procesador</a>
+            </div>
+            <div class="col d-inline-flex m-1">
+                <a class="btn btn-outline-dark w-100 h-100" asp-action="Cooler" asp-controller="ArmaTuPc">2 - Cooler del Procesador</a>
+            </div>
+            <div class="col d-inline-flex m-1">
+                <a class="btn btn-outline-dark w-100 h-100 " asp-action="PlacaMadre" asp-controller="ArmaTuPc">3 - Placa Madre</a>
+            </div>
+            <div class="col d-inline-flex m-1">
+                <a class="btn btn-outline-dark w-100 h-100" asp-action="MemoriaRam" asp-controller="ArmaTuPc">4 - Memoria Ram</a>
+            </div>
+            <div class="col d-inline-flex m-1">
+                <a class="btn btn-outline-dark w-100 h-100" asp-action="Gabinete" asp-controller="ArmaTuPc">5 - Gabinete</a>
+            </div>
+            <div class="col d-inline-flex m-1">
+                <a class="btn btn-outline-dark w-100 h-100" asp-action="Fuente" asp-controller="ArmaTuPc">6 - Fuente</a>
+            </div>
+            <div class="col d-inline-flex m-1">
+                <a class="btn btn-outline-dark w-100 h-100" asp-action="DiscoPrincipal" asp-controller="ArmaTuPc">7 - Disco Principal</a>
+            </div>
+            <div class="col d-inline-flex m-1">
+                <a class="btn btn-outline-dark w-100 h-100" asp-action="DiscoSecundario" asp-controller="ArmaTuPc">8 - Disco Secundario</a>
+            </div>
+            <div class="col d-inline-flex m-1">
+                <a class="btn btn-outline-dark w-100 h-100" asp-action="PlacaDeVideo" asp-controller="ArmaTuPc">9 - Placa de Video</a>
+            </div>
+            <div class="col d-inline-flex m-1">
+                <a class="btn btn-dark w-100 h-100" asp-action="ATYI" asp-controller="ArmaTuPc">10 - Armado, testeo e Instalaciòn</a>
+            </div>
+            <div class="col d-inline-flex m-1">
+                <a class="btn btn-outline-dark w-100 h-100" asp-action="Comprar" asp-controller="ArmaTuPc">11 - Revisar y Comprar</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="container-fluid d-inline-flex justify-content-center align-content-center flex-column m-2 w-100">
+
+        <h2>10 - ARMADO, TESTEO E INSTALACIÓN.</h2>
+        <p>
+            IMPORTANTE: DEMORA ESTIMADA 5 DIAS
+            Te entregamos el equipo armado, testeado y con todo instalado para que puedas
+            usarla apenas llegas a casa (Si posee componentes no comprados en nuestro local tendrá un costo adicional)
+        </p>
+
+        <p>Elije una opción para continuar:</p>
+        <p>opciones disponibles:</p>
+          
+   
+    </div>
+</div>
+<div class="container-fluid d-inline-flex justify-content-center row m-auto">
+    <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <h5>Con Armado, Testeo e Instalación</h5>
+
+        <img src="~/images/th.jpg" class="card-img-top w-100 h-50" />
+        <div class="card-body">
+            <a class="btn btn-primary text-white" type="submit" name="agregarProcesador" asp-action="ATYI" asp-controller="ArmaTuPc" asp-route-ATYI="Si"> Elegir</a>
+        </div>
+    </div>
+
+
+
+    <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <h5>No quiero Armado, Testeo e Instalación</h5>
+        <img src="~/images/th.jpg" class="card-img-top w-100 h-50" />
+        <div class="card-body">
+
+            <a class="btn btn-primary text-white" type="submit" name="agregarProcesador" asp-action="ATYI" asp-controller="ArmaTuPc" asp-route-ATYI="No"> Elegir</a>
+        </div>
+    </div>
+</div>

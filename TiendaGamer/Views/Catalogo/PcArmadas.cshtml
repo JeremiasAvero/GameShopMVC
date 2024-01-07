@@ -1,0 +1,30 @@
+﻿@using TiendaElectronica.Data;
+@using TiendaGamer.Models;
+@model List<PcArmadaModel>
+@{
+    ViewData["Title"] = "PcArmadas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ProductoDatos datosProductos = new ProductoDatos();
+
+
+
+}
+
+
+<div class="container-fluid d-inline-flex justify-content-center row m-auto">
+
+
+    @foreach (var item in Model)
+    {
+        var gabinete = datosProductos.Obtener(item.IdGabinete);
+        <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            
+            <img src="@gabinete.UrlImagen" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h6 class="card-title">@item.Nombre</h6>
+                <h5 class="card-text">$@item.Precio </h5>
+                <a class="btn btn-primary text-white" type="submit" name="agregarProcesador" asp-action="PcArmada" asp-controller="Catalogo" asp-route-id="@item.IdPc"> Ver configuración</a>
+            </div>
+        </div>
+    }
+</div>

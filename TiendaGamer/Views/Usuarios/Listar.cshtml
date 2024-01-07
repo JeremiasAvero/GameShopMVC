@@ -1,0 +1,108 @@
+﻿@using TiendaGamer.Models;
+@model List<UsuarioModel>
+@{
+    ViewData["Title"] = "Usuarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Paginador paginador = new Paginador();
+    int pageNo = 0;
+
+    if (ViewBag.Pager != null)
+    {
+        paginador = ViewBag.Pager;
+        pageNo = paginador.CurrentPage;
+    }
+}
+
+<hr />
+<div class="col" >
+    <div class="card m-2 m-sm-5 bg-light">
+        <div class="card-header">
+            <h1>Usuarios</h1>
+        </div>
+
+        <hr />
+        <div class="card-body">
+            <div class="row">
+                <form class="row" asp-action="Listar" asp-controller="Usuarios" method="get">
+                    <div class="col-3">
+                        <a asp-action="Registrar" asp-controller="Usuarios" class="btn btn-dark">Crear Nuevo</a>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" class="form-control" placeholder="Buscar..." name="filtro" />
+                    </div>
+                    <div class="col-2">
+                        <button type="submit" class="btn btn-outline-dark">Buscar</button>
+                    </div>
+                </form>
+            </div>
+
+            <hr />
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre de usuario</th>
+                        <th>Correo electrónico</th>
+                        <th>Contraseña</th>
+                        <th>Tipo de usuario</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.NombreUsuario</td>
+                            <td>@item.Correo</td>
+                            <td>@item.Password</td>
+                            <td>@item.IdTipoUsuario</td>
+                            <td><a asp-action="Editar" asp-controller="Usuarios" class="btn btn-dark" asp-route-idUsuario="@item.Id">Editar</a></td>
+                            <td><a type="submit" asp-action="Eliminar" asp-controller="Usuarios" class="btn btn-danger" asp-route-idUsuario="@item.Id">Eliminar</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <div class="container">
+        @if (paginador.TotalPages > 0)
+        {
+
+            <ul class="pagination justify-content-center m-4">
+                @if (paginador.CurrentPage > 1)
+                {
+                    <li class="page-item" style="background-color: #683C8E;">
+                        <a class="page-link text-white" style="background-color: #683C8E;" asp-controller="Usuarios" asp-action="Listar" asp-route-pg="1">Primera</a>
+                    </li>
+                    <li>
+                        <a class="page-link text-white" style="background-color: #683C8E;" asp-controller="Usuarios" asp-action="Listar" asp-route-pg="@(paginador.TotalPages - 1)">Anterior</a>
+
+                    </li>
+                }
+                @for (var pge = paginador.StartPage; pge <= paginador.EndPage; pge++)
+                {
+                    <li class="page-item @(pge == paginador.CurrentPage ? "active": "")" aria-current="page">
+                        <a class="page-link text-white" style="background-color: #683C8E;" asp-controller="Usuarios" asp-action="Listar" asp-route-pg="@pge"> @pge</a>
+
+                    </li>
+                }
+                @if (paginador.CurrentPage < paginador.TotalPages)
+                {
+                    <li class="page-item">
+                        <a class="page-link text-white" style="background-color: #683C8E;" asp-controller="Usuarios" asp-action="Listar" asp-route-pg="@(paginador.CurrentPage + 1)">Siguiente</a>
+                    </li>
+                    <li>
+                        <a class="page-link text-white" style="background-color: #683C8E;" asp-controller="Usuarios" asp-action="Listar" asp-route-pg="@(paginador.TotalPages)">Ultima</a>
+
+                    </li>
+                }
+
+
+
+            </ul>
+        }
+    </div>
+</div>
+
+

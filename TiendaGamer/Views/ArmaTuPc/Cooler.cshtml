@@ -1,0 +1,251 @@
+﻿@using TiendaGamer.Models;
+@model List<ProductoModel>
+@{
+    ViewData["Title"] = "Cooler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<hr />
+<div class="card p-3 w-75 m-auto" style=" box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+    <div class="container-fluid">
+        @if (ViewBag.CoolerElegido == null)
+        {
+            <div class="container d-inline-fle flex-row">
+                <div class="col d-inline-flex m-1">
+                    <a class="btn btn-outline-dark w-100  h-100" asp-action="Procesador" asp-controller="ArmaTuPc">1 - Procesador</a>
+                </div>
+
+                <div class="col d-inline-flex m-1">
+                    <a class="btn btn-dark w-100 h-100" asp-action="Cooler" asp-controller="ArmaTuPc">2 - Cooler del Procesador</a>
+                </div>
+
+
+                <div class="col d-inline-flex m-1">
+                    <a class="btn btn-outline-dark w-100 h-100 disabled" asp-action="PlacaMadre" asp-controller="ArmaTuPc">3 - Placa Madre</a>
+                </div>
+                <div class="col d-inline-flex m-1">
+                    <a class="btn btn-outline-dark w-100 h-100 disabled" asp-action="MemoriaRam" asp-controller="ArmaTuPc">4 - Memoria Ram</a>
+                </div>
+                <div class="col d-inline-flex m-1">
+                    <a class="btn btn-outline-dark w-100 h-100 disabled" asp-action="Gabinete" asp-controller="ArmaTuPc">5 - Gabinete</a>
+                </div>
+                <div class="col d-inline-flex m-1">
+                    <a class="btn btn-outline-dark w-100 h-100 disabled" asp-action="Fuente" asp-controller="ArmaTuPc">6 - Fuente</a>
+                </div>
+                <div class="col d-inline-flex m-1">
+                    <a class="btn btn-outline-dark w-100 h-100 disabled" asp-action="DiscoPrincipal" asp-controller="ArmaTuPc">7 - Disco Principal</a>
+                </div>
+                <div class="col d-inline-flex m-1">
+                    <a class="btn btn-outline-dark w-100 h-100 disabled" asp-action="DiscoSecundario" asp-controller="ArmaTuPc">8 - Disco Secundario</a>
+                </div>
+                <div class="col d-inline-flex m-1">
+                    <a class="btn btn-outline-dark w-100 h-100 disabled" asp-action="PlacaDeVideo" asp-controller="ArmaTuPc">9 - Placa de Video</a>
+                </div>
+                <div class="col d-inline-flex m-1">
+                    <a class="btn btn-outline-dark w-100 h-100 disabled" asp-action="ATYI" asp-controller="ArmaTuPc">10 - Armado, testeo e Instalaciòn</a>
+                </div>
+                <div class="col d-inline-flex m-1">
+                    <a class="btn btn-outline-dark w-100 h-100 disabled" asp-action="MemoriaRam" asp-controller="ArmaTuPc">11 - Revisar y Comprar</a>
+                </div>
+
+            </div>
+        }
+        else
+        {
+            <div class="container d-inline-fle flex-row">
+                <div class="col d-inline-flex m-1">
+                    <a class="btn btn-outline-dark w-100  h-100" asp-action="Procesador" asp-controller="ArmaTuPc">1 - Procesador</a>
+                </div>
+
+                <div class="col d-inline-flex m-1">
+                    <a class="btn btn-dark w-100 h-100" asp-action="Cooler" asp-controller="ArmaTuPc">2 - Cooler del Procesador</a>
+                </div>
+
+
+                <div class="col d-inline-flex m-1">
+                    <a class="btn btn-outline-dark w-100 h-100" asp-action="PlacaMadre" asp-controller="ArmaTuPc">3 - Placa Madre</a>
+                </div>
+
+
+                @if (ViewBag.MemoriaRamElegida != null)
+                {
+                    <div class="col d-inline-flex m-1">
+                        <a class="btn btn-outline-dark w-100 h-100" asp-action="MemoriaRam" asp-controller="ArmaTuPc">4 - Memoria Ram</a>
+                    </div>
+                }
+                else
+                {
+                    <div class="col d-inline-flex m-1">
+                        <a class="btn btn-outline-dark w-100 h-100 disabled" asp-action="MemoriaRam" asp-controller="ArmaTuPc">4 - Memoria Ram</a>
+                    </div>
+                }
+
+                @if (ViewBag.GabineteElegido != null)
+                {
+                    <div class="col d-inline-flex m-1">
+                        <a class="btn btn-outline-dark w-100 h-100" asp-action="Gabinete" asp-controller="ArmaTuPc">5 - Gabinete</a>
+                    </div>
+                }
+                else
+                {
+                    <div class="col d-inline-flex m-1">
+                        <a class="btn btn-outline-dark w-100 h-100 disabled" asp-action="Gabinete" asp-controller="ArmaTuPc">5 - Gabinete</a>
+                    </div>
+                }
+
+                @if (ViewBag.FuenteElegida != null)
+                {
+                    <div class="col d-inline-flex m-1">
+                        <a class="btn btn-outline-dark w-100 h-100 " asp-action="Fuente" asp-controller="ArmaTuPc">6 - Fuente</a>
+                    </div>
+                }
+                else
+                {
+                    <div class="col d-inline-flex m-1">
+                        <a class="btn btn-outline-dark w-100 h-100 disabled" asp-action="Fuente" asp-controller="ArmaTuPc">6 - Fuente</a>
+                    </div>
+                }
+
+                @if (ViewBag.DiscoPrincipalElegido != null)
+                {
+
+                    <div class="col d-inline-flex m-1">
+                        <a class="btn btn-outline-dark w-100 h-100" asp-action="DiscoPrincipal" asp-controller="ArmaTuPc">7 - Disco Principal</a>
+                    </div>
+                }
+                else
+                {
+                    <div class="col d-inline-flex m-1">
+                        <a class="btn btn-outline-dark w-100 h-100 disabled" asp-action="DiscoPrincipal" asp-controller="ArmaTuPc">7 - Disco Principal</a>
+                    </div>
+                }
+
+                @if (ViewBag.DiscoSecundarioElegido != null)
+                {
+                    <div class="col d-inline-flex m-1">
+                        <a class="btn btn-outline-dark w-100 h-100" asp-action="DiscoSecundario" asp-controller="ArmaTuPc">8 - Disco Secundario</a>
+                    </div>
+                }
+                @if (ViewBag.ProcesadorElegido != null && ViewBag.CoolerElegido != null && ViewBag.PlacaMadreElegida != null && ViewBag.MemoriaRamElegida != null && ViewBag.GabineteElegido != null && ViewBag.FuenteElegida != null && ViewBag.DiscoPrincipalElegido != null)
+                {
+                    <div class="col d-inline-flex m-1">
+                        <a class="btn btn-outline-dark w-100 h-100" asp-action="DiscoSecundario" asp-controller="ArmaTuPc">8 - Disco Secundario</a>
+                    </div>
+                }
+                else
+                {
+                    <div class="col d-inline-flex m-1">
+                        <a class="btn btn-outline-dark w-100 h-100 disabled" asp-action="DiscoSecundario" asp-controller="ArmaTuPc">8 - Disco Secundario</a>
+                    </div>
+
+                }
+
+                @if (ViewBag.PlacaDeVideoElegida != null)
+                {
+                    <div class="col d-inline-flex m-1">
+                        <a class="btn btn-outline-dark w-100 h-100 " asp-action="PlacaDeVideo" asp-controller="ArmaTuPc">9 - Placa de Video</a>
+                    </div>
+                }
+                @if (ViewBag.ProcesadorElegido != null && ViewBag.CoolerElegido != null && ViewBag.PlacaMadreElegida != null && ViewBag.MemoriaRamElegida != null && ViewBag.GabineteElegido != null && ViewBag.FuenteElegida != null && ViewBag.DiscoPrincipalElegido != null)
+                {
+                    <div class="col d-inline-flex m-1">
+                        <a class="btn btn-outline-dark w-100 h-100 " asp-action="PlacaDeVideo" asp-controller="ArmaTuPc">9 - Placa de Video</a>
+                    </div>
+                }
+                else
+                {
+                    <div class="col d-inline-flex m-1">
+                        <a class="btn btn-outline-dark w-100 h-100 disabled" asp-action="PlacaDeVideo" asp-controller="ArmaTuPc">9 - Placa de Video</a>
+                    </div>
+                }
+
+                @if (ViewBag.ATYI != null)
+                {
+                    <div class="col d-inline-flex m-1">
+                        <a class="btn btn-outline-dark w-100 h-100" asp-action="ATYI" asp-controller="ArmaTuPc">10 - Armado, testeo e Instalaciòn</a>
+                    </div>
+                }
+                @if (ViewBag.ProcesadorElegido != null && ViewBag.CoolerElegido != null && ViewBag.PlacaMadreElegida != null && ViewBag.MemoriaRamElegida != null && ViewBag.GabineteElegido != null && ViewBag.FuenteElegida != null && ViewBag.DiscoPrincipalElegido != null)
+                {
+                    <div class="col d-inline-flex m-1">
+                        <a class="btn btn-outline-dark w-100 h-100" asp-action="ATYI" asp-controller="ArmaTuPc">10 - Armado, testeo e Instalaciòn</a>
+                    </div>
+                }
+                else
+                {
+                    <div class="col d-inline-flex m-1">
+                        <a class="btn btn-outline-dark w-100 h-100 disabled" asp-action="ATYI" asp-controller="ArmaTuPc">10 - Armado, testeo e Instalaciòn</a>
+                    </div>
+                }
+                @if (ViewBag.ProcesadorElegido != null && ViewBag.CoolerElegido != null && ViewBag.PlacaMadreElegida != null && ViewBag.MemoriaRamElegida != null && ViewBag.GabineteElegido != null && ViewBag.FuenteElegida != null && ViewBag.DiscoPrincipalElegido != null)
+                {
+                    <div class="col d-inline-flex m-1">
+                        <a class="btn btn-outline-dark w-100 h-100" asp-action="Comprar" asp-controller="ArmaTuPc">11 - Revisar y Comprar</a>
+                    </div>
+                }
+                else
+                {
+                    <div class="col d-inline-flex m-1">
+                        <a class="btn btn-outline-dark w-100 h-100 disabled" asp-action="Comprar" asp-controller="ArmaTuPc">11 - Revisar y Comprar</a>
+                    </div>
+                }
+            </div>
+        }
+        <div class="container-fluid d-inline-flex justify-content-center align-content-center flex-column m-2 w-100">
+
+            <h2>2 - COOLER</h2>
+            <p>Los procesadores Intel "K" (ej 12600K) y Ryzen "X" (ej 5900X) vienen sin Cooler de fabrica</p>
+            <p>Elije una opción para continuar:</p>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid d-inline-flex justify-content-center row m-auto">
+
+    <div class="container-fluid d-inline-flex justify-content-center align-items-center">
+        @if (ViewBag.CoolerElegido != null)
+        {
+            ProductoModel CoolerElegido = ViewBag.CoolerElegido;
+
+
+            <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                <div class="card-header bg-success text-white">
+                    Opción elegida
+                </div>
+                @if (CoolerElegido.UrlImagen != null)
+                {
+                    <img src="@CoolerElegido.UrlImagen" class="card-img-top w-100 h-50" alt="...">
+                }
+                else
+                {
+                    <img src="~/productosimagenes/defaultplaceholder.png" class="card-img-top" alt="...">
+                }
+                <div class="card-body">
+                    <h6 class="card-title">@CoolerElegido.Nombre</h6>
+                    <h5 class="card-text">$@CoolerElegido.Precio </h5>
+                    <a class="btn btn-primary text-white" type="submit" name="agregarProcesador" asp-action="Cooler" asp-controller="ArmaTuPc" asp-route-idProductoQuitar="@CoolerElegido.Id"> Quitar</a>
+                </div>
+            </div>
+
+        }
+    </div>
+    @foreach (var item in Model)
+    {
+        <div class="card btn d-inline-flex text-center m-2 p-2" style="width: 15rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            @if (item.UrlImagen != null)
+            {
+                <img src="@item.UrlImagen" class="card-img-top w-100 h-50" alt="...">
+            }
+            else
+            {
+                <img src="~/productosimagenes/defaultplaceholder.png" class="card-img-top" alt="...">
+            }
+            <div class="card-body">
+                <h6 class="card-title">@item.Nombre</h6>
+                <h5 class="card-text">$@item.Precio </h5>
+                <a class="btn btn-primary text-white" type="submit" name="agregarProcesador" asp-action="Cooler" asp-controller="ArmaTuPC" asp-route-idProducto="@item.Id"> Elegir</a>
+            </div>
+        </div>
+    }
+</div>
+

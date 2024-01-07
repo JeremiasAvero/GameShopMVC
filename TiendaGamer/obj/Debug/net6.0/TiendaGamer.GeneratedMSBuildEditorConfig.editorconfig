@@ -1,0 +1,181 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = TiendaGamer
+build_property.RootNamespace = TiendaGamer
+build_property.ProjectDir = C:\Users\PC\Desktop\Dev\ProgrammigC#\TiendaGamer\TiendaGamer\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\PC\Desktop\Dev\ProgrammigC#\TiendaGamer\TiendaGamer
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/ArmaTuPc/ATYI.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJtYVR1UGNcQVRZSS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/ArmaTuPc/Comprar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJtYVR1UGNcQ29tcHJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/ArmaTuPc/Cooler.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJtYVR1UGNcQ29vbGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/ArmaTuPc/DiscoPrincipal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJtYVR1UGNcRGlzY29QcmluY2lwYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/ArmaTuPc/DiscoSecundario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJtYVR1UGNcRGlzY29TZWN1bmRhcmlvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/ArmaTuPc/Fuente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJtYVR1UGNcRnVlbnRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/ArmaTuPc/Gabinete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJtYVR1UGNcR2FiaW5ldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/ArmaTuPc/MemoriaRam.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJtYVR1UGNcTWVtb3JpYVJhbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/ArmaTuPc/PlacaDeVideo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJtYVR1UGNcUGxhY2FEZVZpZGVvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/ArmaTuPc/PlacaMadre.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJtYVR1UGNcUGxhY2FNYWRyZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/ArmaTuPc/Procesador.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJtYVR1UGNcUHJvY2VzYWRvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/Carrito/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2Fycml0b1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/Catalogo/Listar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ29cTGlzdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/Catalogo/PcArmada.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ29cUGNBcm1hZGEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/Catalogo/PcArmadas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ29cUGNBcm1hZGFzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/Catalogo/VerProducto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ29cVmVyUHJvZHVjdG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/Categorias/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhc1xFZGl0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/Categorias/Listar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhc1xMaXN0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/Categorias/Registrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhc1xSZWdpc3RyYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/Login/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/Login/Registrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cUmVnaXN0cmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/Marcas/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzXEVkaXRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/Marcas/Listar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzXExpc3Rhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/Marcas/Registrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzXFJlZ2lzdHJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/PcArmadas/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGNBcm1hZGFzXEVkaXRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/PcArmadas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGNBcm1hZGFzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/PcArmadas/Listar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGNBcm1hZGFzXExpc3Rhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/PcArmadas/Registrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGNBcm1hZGFzXFJlZ2lzdHJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/Productos/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXEVkaXRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/Productos/Listar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXExpc3Rhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/Productos/Registrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXFJlZ2lzdHJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/Usuarios/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRWRpdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/Usuarios/Listar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcTGlzdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/Usuarios/Registrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcUmVnaXN0cmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/Desktop/Dev/ProgrammigC\#/TiendaGamer/TiendaGamer/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-4rs8kmhxyz

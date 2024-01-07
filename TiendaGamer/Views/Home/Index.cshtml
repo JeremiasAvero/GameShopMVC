@@ -1,0 +1,358 @@
+﻿@using TiendaGamer.Extensions;
+@using TiendaGamer.Models
+@model List<ProductoModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Paginador paginador = new Paginador();
+    int pageNo = 0;
+
+    if (ViewBag.Pager != null)
+    {
+        paginador = ViewBag.Pager;
+        pageNo = paginador.CurrentPage;
+    }
+    List<int> carrito = Context.Session.GetObject<List<int>>("carrito");
+}
+<div class="p-0">
+    <div class="row p-0">
+        <div class="col-6 d-inline-flex m-0 p-0" style="width:100%; height:20%;">
+            <div id="carouselExampleCaptions" class="carousel slide w-100 m-0" data-bs-ride="carousel" style="width:100%; height:15%;">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner " style="width:100%; height:15%;">
+                    <div class="carousel-item active" data-bs-interval="3000" style="width:100%; height:20%;">
+                        <img src="~/images/banner1.jpg" class="d-block w-100 img-fluid" alt="..." style="width:100%; height:20%;" />
+                        <div class="carousel-caption d-none d-md-block">
+                            <h4><a href="#" class="text-white bg-dark text-decoration-none"></a></h4>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000" style="width:100%; height:20%;">
+                        <img src="~/images/banner_tarjeta_de_video_d5de0257-f765-43df-a546-d429e85b4503.jpg" class="d-block w-100 img-fluid" alt="..." style="width:100%; height:20%;" />
+                        @*   <img src="~/images/banner2.jpg"  />*@
+                        <div class="carousel-caption d-none d-md-block">
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000" style="width:100%; height:20%;">
+                        <img src="~/images/banner3.jpg" class="d-block w-100 img-fluid" alt="..." style="width:100%; height:20%;" />
+                        <div class="carousel-caption d-none d-md-block">
+                        </div>
+                    </div>
+
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+    <hr />
+
+    <div class="row  bg-white">
+
+        <div class="col-6" style=>
+            <a asp-action="PcArmadas" asp-controller="Catalogo">
+                <img class="img-fluid w-100" src="~/images/pcarmadas.jpg" />
+            </a>
+
+
+        </div>
+        <div class="col-5" >
+            <a asp-action="Procesador" asp-controller="ArmaTuPc">
+                <img class="img-fluid w-100" src="~/images/como-montar-pc-gamer.jpg" style="height:100%;" />
+
+            </a>   
+
+        </div>
+    </div>
+    <div class="row m-5">
+        <div class="col">
+            <hr />
+        </div>
+        <div class="col text-center">
+            <h3>Mas Vendidos</h3>
+        </div>
+
+        <div class="col">
+            <hr />
+        </div>
+    </div>
+    <div id="slider-container">
+
+        <button id="prevBtn" class="btn btn-primary"><h1 class="bi bi-arrow-left "></h1></button>
+        <div id="slider">
+
+            @for (int i = 0; i < 15; i++)
+            {
+
+                var item = Model[i];
+
+                <div class="product">
+                    <div class="card  d-inline-flex text-center p-2 h-100 w-100" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                        <a class="text-black text-decoration-none" asp-action="VerProducto" asp-controller="Catalogo" asp-route-idProducto="@item.Id">
+                            <img src="@item.UrlImagen" class="card-img-top " />
+                            <div class="card-body">
+                                <h6>@item.Nombre</h6>
+                                <h5>$@item.Precio </h5>
+                                <a class="btn btn-primary text-white" asp-action="Index" asp-controller="Home" asp-route-idProducto="@item.Id"> Agregar al carrito</a>
+
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            }
+
+        </div>
+
+        <button id="nextBtn" class="btn btn-primary"><h1 class="bi bi-arrow-right w-100 h-100"></h1></button>
+
+    </div>
+    <div class="row m-0 mb-3">
+        <div class="col">
+        </div>
+        <div class="col text-center">
+            <button class="btn btn-primary">Ver más</button>
+        </div>
+
+        <div class="col">
+
+        </div>
+    </div>
+    <div id="titleS2" class="row">
+        <div class="col">
+            <hr />
+        </div>
+        <div class="col text-center">
+            <h3>Componentes de Pc</h3>
+        </div>
+
+        <div class="col">
+            <hr />
+        </div>
+    </div>
+    <div id="slider-container2">
+
+        <button id="prevBtn2" class="btn btn-primary"><h1 class="bi bi-arrow-left "></h1></button>
+        <div id="slider2">
+
+            @for (int i = 0; i < 15; i++)
+            {
+
+                var item = ViewBag.componentes[i];
+
+                <div class="product">
+                    <div class="card  d-inline-flex text-center p-2 h-100 w-100" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                        <a class="text-black text-decoration-none" asp-action="VerProducto" asp-controller="Catalogo" asp-route-idProducto="@item.Id">
+                            <img src="@item.UrlImagen" class="card-img-top " />
+                            <div class="card-body">
+                                <h6>@item.Nombre</h6>
+                                <h5>$@item.Precio </h5>
+                                <a class="btn btn-primary text-white" asp-action="Listar" asp-controller="Catalogo" asp-route-idProducto="@item.Id"> Agregar al carrito</a>
+
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            }
+
+        </div>
+
+        <button id="nextBtn2" class="btn btn-primary"><h1 class="bi bi-arrow-right w-100 h-100"></h1></button>
+
+    </div>
+
+    <div class="row m-0 mb-3">
+        <div class="col">
+        </div>
+        <div class="col text-center">
+            <button class="btn btn-primary">Ver más</button>
+        </div>
+
+        <div class="col">
+        </div>
+    </div>
+    <div id="titleS" class="row " >
+        <div class="col">
+            <hr />
+        </div>
+        <div class="col text-center">
+            <h3>Perifericos</h3>
+        </div>
+
+        <div class="col">
+            <hr />
+        </div>
+    </div>
+    <div id="slider-container3">
+
+        <button id="prevBtn3" class="btn btn-primary"><h1 class="bi bi-arrow-left "></h1></button>
+        <div id="slider3">
+
+            @for (int i = 0; i < 13; i++)
+            {
+
+                var item = ViewBag.perifericos[i];
+
+                <div class="product">
+                    <div class="card  d-inline-flex text-center p-2 h-100 w-100" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                        <a class="text-black text-decoration-none" asp-action="VerProducto" asp-controller="Catalogo" asp-route-idProducto="@item.Id">
+                            <img src="@item.UrlImagen" class="card-img-top " />
+                            <div class="card-body">
+                                <h6>@item.Nombre</h6>
+                                <h5>$@item.Precio </h5>
+                                <a class="btn btn-primary text-white" asp-action="Listar" asp-controller="Catalogo" asp-route-idProducto="@item.Id"> Agregar al carrito</a>
+
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            }
+
+        </div>
+
+        <button id="nextBtn3" class="btn btn-primary"><h1 class="bi bi-arrow-right w-100 h-100"></h1></button>
+
+    </div>
+
+    <div class="row m-0 mb-3">
+        <div class="col">
+        </div>
+        <div class="col text-center">
+            <button class="btn btn-primary">Ver más</button>
+        </div>
+
+        <div class="col">
+        </div>
+    </div>
+    <script>
+        //1er slide
+        document.addEventListener("DOMContentLoaded", function () {
+            // Obtener productos desde el modelo Razor
+            const productos = @Json.Serialize(Model);
+            // Obtener elementos HTML
+            const sliderContainer = document.getElementById("slider");
+
+            // Configurar el slider
+            const slider = document.getElementById("slider");
+            let position = 0;
+
+            function showProducts() {
+                slider.style.transform = `translateX(${position}px)`;
+            }
+
+            function slide(direction) {
+                const containerWidth = sliderContainer.clientWidth;
+                const maxPosition = -(slider.scrollWidth - containerWidth);
+
+                if (direction === "next" && position > maxPosition) {
+                    position -= 300; // Ancho de cada producto (200px + margen 20px)
+                    showProducts();
+                } else if (direction === "prev" && position < 0) {
+                    position += 300;
+                    showProducts();
+                }
+            }
+
+            // Manejar eventos de botones de navegación
+            document.getElementById("prevBtn").addEventListener("click", function () {
+                slide("prev");
+            });
+
+            document.getElementById("nextBtn").addEventListener("click", function () {
+                slide("next");
+            });
+        });
+
+        //2do slide
+        document.addEventListener("DOMContentLoaded", function () {
+            // Obtener productos desde el modelo Razor
+            const productos = @Json.Serialize(Model);
+            // Obtener elementos HTML
+            const sliderContainer = document.getElementById("slider2");
+
+            // Configurar el slider
+            const slider = document.getElementById("slider2");
+            let position = 0;
+
+            function showProducts() {
+                slider.style.transform = `translateX(${position}px)`;
+            }
+
+            function slide(direction) {
+                const containerWidth = sliderContainer.clientWidth;
+                const maxPosition = -(slider.scrollWidth - containerWidth);
+
+                if (direction === "next" && position > maxPosition) {
+                    position -= 300; // Ancho de cada producto (200px + margen 20px)
+                    showProducts();
+                } else if (direction === "prev" && position < 0) {
+                    position += 300;
+                    showProducts();
+                }
+            }
+
+            // Manejar eventos de botones de navegación
+            document.getElementById("prevBtn2").addEventListener("click", function () {
+                slide("prev");
+            });
+
+            document.getElementById("nextBtn2").addEventListener("click", function () {
+                slide("next");
+            });
+        });
+
+        //3er slide
+        document.addEventListener("DOMContentLoaded", function () {
+            // Obtener productos desde el modelo Razor
+            const productos = @Json.Serialize(Model);
+            // Obtener elementos HTML
+            const sliderContainer = document.getElementById("slider3");
+
+            // Configurar el slider
+            const slider = document.getElementById("slider3");
+            let position = 0;
+
+            function showProducts() {
+                slider.style.transform = `translateX(${position}px)`;
+            }
+
+            function slide(direction) {
+                const containerWidth = sliderContainer.clientWidth;
+                const maxPosition = -(slider.scrollWidth - containerWidth);
+
+                if (direction === "next" && position > maxPosition) {
+                    position -= 300; // Ancho de cada producto (200px + margen 20px)
+                    showProducts();
+                } else if (direction === "prev" && position < 0) {
+                    position += 300;
+                    showProducts();
+                }
+            }
+
+            // Manejar eventos de botones de navegación
+            document.getElementById("prevBtn3").addEventListener("click", function () {
+                slide("prev");
+            });
+
+            document.getElementById("nextBtn3").addEventListener("click", function () {
+                slide("next");
+            });
+        });
+    </script>
+
+
+
+</div>
